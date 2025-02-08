@@ -1,10 +1,21 @@
 package basic_string;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LongestCommonPrefix {
     public static void main(String[] args) {
         String[] str = {"flowers", "flow", "fly", "flight"};
         LongestCommonPrefix lcp = new LongestCommonPrefix();
         System.out.println(lcp.longestCommonPrefix(str));
+        System.out.println(lcp.longestCommonPrefixOptimal(str));
+    }
+
+    public String longestCommonPrefixOptimal(String[] str) {
+        List<String> sortedList = Arrays.stream(str).sorted(String::compareTo).toList();
+
+        return findCommonPrefix(sortedList.getFirst(), sortedList.getLast());
+
     }
 
     public String longestCommonPrefix(String[] str) {

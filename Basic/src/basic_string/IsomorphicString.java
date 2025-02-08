@@ -13,27 +13,25 @@ public class IsomorphicString {
 
     public boolean isomorphicString(String s, String t) {
         //your code goes here
-        Map<Character, Character> map = new HashMap<>();
+        Map<Character, Character> sMap = new HashMap<>();
+        Map<Character, Character> tMap = new HashMap<>();
         if (s.length() != t.length()) {
             return false;
         }
 
         for (int i = 0; i < s.length(); i++) {
-            if (!map.containsKey(s.charAt(i))) {
-                map.put(s.charAt(i), t.charAt(i));
+            if (!sMap.containsKey(s.charAt(i))) {
+                sMap.put(s.charAt(i), t.charAt(i));
             } else {
-                if (map.get(s.charAt(i)) != t.charAt(i)) {
+                if (sMap.get(s.charAt(i)) != t.charAt(i)) {
                     return false;
                 }
             }
-        }
 
-        map.clear();
-        for (int i = 0; i < t.length(); i++) {
-            if (!map.containsKey(t.charAt(i))) {
-                map.put(t.charAt(i), s.charAt(i));
+            if (!tMap.containsKey(t.charAt(i))) {
+                tMap.put(t.charAt(i), s.charAt(i));
             } else {
-                if (map.get(t.charAt(i)) != s.charAt(i)) {
+                if (tMap.get(t.charAt(i)) != s.charAt(i)) {
                     return false;
                 }
             }

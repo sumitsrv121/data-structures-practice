@@ -20,4 +20,13 @@ public class RotateString {
         }
         return false;
     }
+
+    public boolean rotateStringOptional(String s, String goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        s = s + s;
+
+        return s.contains(goal);
+    }
 }

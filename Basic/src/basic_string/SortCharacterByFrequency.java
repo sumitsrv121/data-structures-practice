@@ -23,9 +23,7 @@ public class SortCharacterByFrequency {
                     if (!Objects.equals(val1, val2)) {
                         return Integer.compare(val2, val1);
                     } else {
-                        int key1 = (int) e1.getKey();
-                        int key2 = (int) e2.getKey();
-                        return Integer.compare(key1, key2);
+                        return Integer.compare(e1.getKey(), e2.getKey());
                     }
                 })
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
